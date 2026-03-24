@@ -18,6 +18,26 @@ def test_calculator_add(page, fastapi_server):
 
 
 @pytest.mark.e2e
+def test_calculator_subtract(page, fastapi_server):
+    page.goto('http://localhost:8000')
+    page.fill('#a', '10')
+    page.fill('#b', '3')
+    page.click('button:text("Subtract")')
+    page.wait_for_function("() => document.querySelector('#result').innerText.length > 0")
+    assert page.inner_text('#result') in ('Calculation Result: 7', 'Calculation Result: 7.0')
+
+
+@pytest.mark.e2e
+def test_calculator_multiply(page, fastapi_server):
+    page.goto('http://localhost:8000')
+    page.fill('#a', '6')
+    page.fill('#b', '7')
+    page.click('button:text("Multiply")')
+    page.wait_for_function("() => document.querySelector('#result').innerText.length > 0")
+    assert page.inner_text('#result') in ('Calculation Result: 42', 'Calculation Result: 42.0')
+
+
+@pytest.mark.e2e
 def test_calculator_divide_by_zero(page, fastapi_server):
     page.goto('http://localhost:8000')
     page.fill('#a', '10')
