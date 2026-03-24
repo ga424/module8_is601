@@ -1,10 +1,17 @@
 import subprocess
 import sys
 import time
+import warnings
 
 import pytest
-import requests
 from playwright.sync_api import sync_playwright
+
+warnings.filterwarnings(
+    'ignore',
+    message=r"urllib3 v2 only supports OpenSSL 1\.1\.1\+",
+)
+
+import requests
 
 
 @pytest.fixture(scope='session')

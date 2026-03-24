@@ -57,7 +57,7 @@ def test_operation_routes_validation_errors(client, route, payload, expected_fra
 
 
 def test_operation_routes_malformed_json(client):
-    response = client.post('/add', data='{"a": 1,', headers={'Content-Type': 'application/json'})
+    response = client.post('/add', content='{"a": 1,', headers={'Content-Type': 'application/json'})
     assert response.status_code == 400
     assert 'error' in response.json()
 
