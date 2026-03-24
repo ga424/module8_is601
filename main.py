@@ -55,6 +55,12 @@ async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
+@app.get("/health")
+async def health_check():
+    """Return service health status."""
+    return {"status": "ok"}
+
+
 @app.post("/add", response_model=OperationResponse, responses={400: {"model": ErrorResponse}})
 async def add_route(operation: OperationRequest):
     """Return the sum of two numbers."""
