@@ -2,6 +2,11 @@
 
 ---
 
+# Assignment Details 
+GitHub Repository Link: https://github.com/ga424/module8_is601
+DockerHub Repository Link: https://hub.docker.com/repository/docker/ga424/601_module8/general
+Evidence: docs/screenshots/*.png
+
 # 🧩 1. Install Homebrew (Mac Only)
 
 > Skip this step if you're on Windows.
